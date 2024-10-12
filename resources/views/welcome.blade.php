@@ -6,11 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livewire Basiscs</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-    <body>
-        <livewire:hello-world />
-        @livewire('hello-world')
+    <body class="py-8">
+        {{-- <livewire:hello-world />
+        @livewire('hello-world') --}}
+
+        <livewire:counter />
+
     </body>
 
 </html>
