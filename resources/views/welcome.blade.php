@@ -10,13 +10,14 @@
 </head>
 
     <body class="p-4">
-        <livewire:headings.home />
+        {{-- <livewire:hello-world /> --}}
+        {{-- @livewire('hello-world') --}}
 
-        {{-- <livewire:hello-world />
-        @livewire('hello-world') --}}
+        {{-- <livewire:headings.home /> --}}
+
+        <livewire:headings.user />
 
         {{-- <livewire:counter /> --}}
 
     </body>
-
 </html>
