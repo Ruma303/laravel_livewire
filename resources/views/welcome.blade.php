@@ -9,12 +9,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-    <body class="py-8">
-        <livewire:components.heading />
+    <body class="p-4">
+        <livewire:headings.home />
 
         {{-- <livewire:hello-world />
         @livewire('hello-world') --}}
-        
+
         {{-- <livewire:counter /> --}}
 
     </body>

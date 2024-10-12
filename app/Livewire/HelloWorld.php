@@ -11,5 +11,3 @@ class HelloWorld extends Component
         return view('livewire.hello-world');
     }
 }
-
-
