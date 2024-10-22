@@ -19,5 +19,6 @@
 
         {{-- <livewire:counter /> --}}
 
+        <livewire:todos />
     </body>
 </html>
