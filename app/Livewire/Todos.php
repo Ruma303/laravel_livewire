@@ -12,6 +12,15 @@ class Todos extends Component
         'Use Alpine.js'
     ];
 
+    public $todo = "";
+
+    public function add()
+    {
+        $this->todos[] = $this->todo;
+        //$this->todo = '';
+        $this->reset('todo');
+    }
+
 
 
     public function render()
