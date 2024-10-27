@@ -4,7 +4,9 @@ namespace App\Livewire;
 
 use Livewire\Component;
 //use App\Models\Todo;
+use Livewire\Attributes\Title;
 
+#[Title("Todos")]
 class Todos extends Component
 {
     public $todos = [];
@@ -12,23 +14,17 @@ class Todos extends Component
 
     public function mount()
     {
-        //$this->todos = Todo::all();
     }
-
 
     public function updated($props, $value)
     {
         if ($props == "todo")
             $this->$props = strtoupper($value);
-
-        //dd($props, strtoupper($value));
     }
 
     public function updatedTodo($value)
     {
             $this->todo = strtoupper($value);
-
-        //dd($props, strtoupper($value));
     }
 
     public function add()
