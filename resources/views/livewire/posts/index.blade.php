@@ -1,7 +1,12 @@
-<div class="overflow-x-auto relative">
+<div class="overflow-x-auto relative w-full">
     <nav class="flex flex-row space-x-4 mb-5">
         <button type="button" wire:click='generate_posts()' class="text-white p-1 bg-emerald-500 rounded-md hover:scale-105 hover:transition-all mb-2 shadow-md shadow-green-200 h-fit">Quick Generate Posts</button>
         <a type="button" href="{{ route('posts.create') }}" class="text-white p-1 bg-violet-500 rounded-md hover:scale-105 hover:transition-all mb-2 shadow-md shadow-violet-200 h-fit">Create Posts</a>
+        <input type="text" wire:model.live.debounce='search_post' class="border border-gray-300 rounded-md px-3 py-1 focus:border-violet-500 focus:border-2 focus:outline-none" placeholder="Search post here...">
+
+        @if($search_post)
+            <button type="button" wire:click.prevent="clearSearch" class="text-white p-1 bg-gray-500 rounded-md hover:scale-105 hover:transition-all mb-2 shadow-md shadow-gray-200 h-fit">Reset</button>
+        @endif
     </nav>
     <div class="shadow-md shadow-violet-300 overflow-hidden border-b border-violet-200 sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500">
@@ -28,7 +33,7 @@
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-                @foreach ($posts as $post)
+                @foreach ($results as $post)
                     <tr wire:key='"{{ $post->id }}'>
                         <td class="px-6 py-4 whitespace-nowrap flex flex-wrap gap-5">
                             <button type="button" wire:click='delete({{ $post->id }})'
