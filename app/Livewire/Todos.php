@@ -11,10 +11,7 @@ class Todos extends Component
 {
     public $todos = [];
     public $todo = "";
-
-    public function mount()
-    {
-    }
+    public $status = "";
 
     public function updated($props, $value)
     {
