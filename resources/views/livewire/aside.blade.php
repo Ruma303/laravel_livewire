@@ -4,6 +4,9 @@
         <a href="{{ route('users') }}" @class([
             'font-semibold text-violet-600 text-xl' => request()->routeIs('users')
         ])>Users</a>
+        <a href="{{ route('posts.index') }}" @class([
+            'font-semibold text-violet-600 text-xl' => request()->routeIs('posts')
+        ])>Posts</a>
         <a href="{{ route('todos') }}" @class([
             'font-semibold text-violet-600 text-xl' => request()->routeIs('todos')
         ])>Todos</a>
