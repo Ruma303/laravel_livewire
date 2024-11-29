@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 //use App\Models\Todo;
 use Livewire\Attributes\Title;
@@ -10,14 +11,36 @@ use Livewire\Attributes\Title;
 class Todos extends Component
 {
     public $todos = [];
+
+    #[Validate('required|min:5', onUpdate: false)]
     public $todo = "";
     public $status = "";
+    public $preview = "";
 
     public function updated($props, $value)
     {
+        $this->preview = ""; # Alternativa
+        $this->reset("preview"); # Alternativa
+
+        # Validazione vecchio stile
+        /* $this->validate([
+            'todo' => 'required|min:5',
+            'status' => 'required|string'
+        ]); */
+
+        $this->validate();
+
         if ($props == "todo")
             $this->$props = strtoupper($value);
     }
+
+    /* public function rules()
+    {
+        return [
+            'todo' => 'required|min:5',
+            'status' => 'required|string'
+        ];
+    } */
 
     public function updatedTodo($value)
     {
