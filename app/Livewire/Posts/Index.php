@@ -34,9 +34,8 @@ class Index extends Component
     #[On('posts:searchUpdated')]
     public function updateResults($results)
     {
-        // Convertire i risultati in una collezione Eloquent
-        $this->results = collect($results);
-        # $this->results = $results; // Aggiorna i risultati ricevuti dal componente figlio
+        // Convertire i risultati in una collection Eloquent
+        $this->results = Post::hydrate($results);
     }
 
     #[On('posts:clearSearch')]

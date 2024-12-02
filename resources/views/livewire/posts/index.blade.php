@@ -33,10 +33,7 @@
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-                {{-- @dump($posts) --}}
-                {{-- @dump($results) --}}
                 @foreach ($results as $post)
-                    {{-- @dump($post) --}}
                     <tr wire:key='"{{ $post->id }}'>
                         <td class="px-6 py-4 whitespace-nowrap flex flex-wrap gap-5">
                             <button type="button"
