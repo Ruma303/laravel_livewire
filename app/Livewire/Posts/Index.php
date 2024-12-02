@@ -26,10 +26,10 @@ class Index extends Component
         $this->results = $this->posts; // Inizializza i risultati
     }
 
-    public function show($id)
+    /* public function show($id)
     {
         return redirect()->route('posts.show', $id);
-    }
+    } */
 
     #[On('posts:searchUpdated')]
     public function updateResults($results)
