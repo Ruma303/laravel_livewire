@@ -42,6 +42,10 @@ class Index extends AdminLayout
     public function render()
     {
         return view('livewire.posts.index')
-        ->layout('components.layouts.admin', ['title' => 'Manage Posts']);
+            ->layout('components.layouts.admin', [
+                'title' => 'Manage Posts',
+                'admin' => true, // Indica che il layout è admin
+                'nav' => view('livewire.posts.nav-buttons')->render(), // Passa i pulsanti specifici
+            ]);
     }
 }

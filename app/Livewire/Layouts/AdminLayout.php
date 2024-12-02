@@ -10,6 +10,10 @@ class AdminLayout extends Component
 {
     public function render()
     {
-        return view('components.layouts.admin');
+        return view('components.layouts.admin')
+            ->layoutData([
+                'admin' => 'Il boss',
+                'title' => 'Admin Dashboard',
+            ]);
     }
 }

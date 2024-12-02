@@ -12,6 +12,14 @@
     <div class="flex flex-raw gap-4 h-screen min-w-full">
         <livewire:aside :title="$title" />
         <main class="p-4 flex flex-col items-center w-full gap-4 min-h-screen">
+            @if ($admin ?? false)
+                <div class="overflow-x-auto relative w-full">
+                    <nav class="flex flex-row space-x-4 mb-5">
+                        {!! $nav ?? '' !!}
+                    </nav>
+                </div>
+            @endif
+
             {{ $slot }}
         </main>
     </div>
