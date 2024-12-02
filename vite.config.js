@@ -9,10 +9,10 @@ export default defineConfig({
         }),
     ],
     server: {
-        host: 'localhost', // Forza l'uso di localhost invece di [::1]
-        port: 5173, // Porta di default di Vite
+        host: 'localhost',
+        port: 5173,
         hmr: {
-            host: 'localhost', // Host per Hot Module Replacement
+            host: 'localhost',
         },
     },
 });
