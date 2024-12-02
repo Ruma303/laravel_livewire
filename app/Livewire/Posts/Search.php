@@ -32,6 +32,7 @@ class Search extends Component
 
     public function render()
     {
-        return view('livewire.posts.search');
+        return view('livewire.posts.search')
+        ->layoutData(['title' => 'All Posts']);
     }
 }
