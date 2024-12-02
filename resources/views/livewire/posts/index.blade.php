@@ -39,7 +39,10 @@
                     {{-- @dump($post) --}}
                     <tr wire:key='"{{ $post->id }}'>
                         <td class="px-6 py-4 whitespace-nowrap flex flex-wrap gap-5">
-                            <button type="button" wire:click='show({{ $post->id }})'>
+                            <button type="button"
+                                wire:navigate.hover
+                                href="{{ route('posts.show', $post->id) }}"
+                                >
                                 <ion-icon name="eye-outline"
                                     class="text-white p-1 bg-sky-500 rounded-md hover:scale-125 hover:transition-all"></ion-icon>
                             </button>

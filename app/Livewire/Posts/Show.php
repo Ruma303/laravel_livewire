@@ -18,6 +18,8 @@ class Show extends Component
 
     public function render()
     {
-        return view('livewire.posts.show');
+        return view('livewire.posts.show', [
+            'post' => $this->post,
+        ]);
     }
 }
