@@ -2,50 +2,46 @@
 
 namespace App\Livewire\Posts;
 
+use App\Livewire\Layouts\AdminLayout;
 use App\Models\Post;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 
 #[Title("Posts")]
-class Index extends Component
+class Index extends AdminLayout
 {
-    public $posts; // Tutti i post
-    public $results = []; // Risultati della ricerca
+    public $posts;
+    public $results = [];
 
     public function generate_posts()
     {
-        Post::factory(10)->create(); // Genera 10 post di esempio
-        $this->posts = Post::all(); // Recupera tutti i post dal database
-        $this->results = $this->posts; // Inizializza i risultati
+        Post::factory(10)->create();
+        $this->posts = Post::all();
+        $this->results = $this->posts;
     }
 
     public function mount()
     {
-        $this->posts = Post::all(); // Recupera tutti i post al caricamento
-        $this->results = $this->posts; // Inizializza i risultati
+        $this->posts = Post::all();
+        $this->results = $this->posts;
     }
-
-    /* public function show($id)
-    {
-        return redirect()->route('posts.show', $id);
-    } */
 
     #[On('posts:searchUpdated')]
     public function updateResults($results)
     {
-        // Convertire i risultati in una collection Eloquent
         $this->results = Post::hydrate($results);
     }
 
     #[On('posts:clearSearch')]
     public function clearResults()
     {
-        $this->results = $this->posts; // Resetta i risultati alla lista completa di post
+        $this->results = $this->posts;
     }
 
     public function render()
     {
-        return view('livewire.posts.index');
+        return view('livewire.posts.index')
+        ->layout('components.layouts.admin', ['title' => 'Manage Posts']);
     }
 }
